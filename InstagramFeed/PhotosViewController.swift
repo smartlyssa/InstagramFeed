@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AFNetworking
+
 private let CELL_NAME = "net.thegeekgoddess.photofeed.photocell"
 
-class PhotosViewController: UIViewController, UITableViewDataSource {
+class PhotosViewController: UIViewController,
+UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
     var photos: NSArray?
@@ -27,6 +30,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource {
 //        cell.lowResImage.text = photoDictionary["link"] as! String
         
         cell.imageLink.text = photoDictionary["link"] as! String
+        cell.photoView.setImageWithURL(photoDictionary["link"] as! NSURL)
         
 //        let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
 //        cell.textLabel?.text = "\(indexPath.row)"
@@ -40,7 +44,12 @@ class PhotosViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.dataSource = self
+        tableView.rowHeight = 320
 
+        
         let clientId = "f0ad5a0e24c244a3ab245709a700ecc8"
         
         let url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)")!
@@ -51,6 +60,9 @@ class PhotosViewController: UIViewController, UITableViewDataSource {
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.photos = responseDictionary["data"] as! NSArray
+                
+                
+                
                 self.tableView.reloadData()
             }
             
@@ -78,8 +90,9 @@ class PhotosViewController: UIViewController, UITableViewDataSource {
 }
 
 class PhotoCell: UITableViewCell {
-    @IBOutlet var lowResImage: UILabel!
     @IBOutlet var imageLink: UILabel!
+    @IBOutlet weak var photoView: UIImageView!
+    
 
     
 }
