@@ -4,6 +4,21 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
     </dependencies>
     <scenes>
+        <!--Photo Details View Controller-->
+        <scene sceneID="hQN-eS-34I">
+            <objects>
+                <viewController id="psA-zN-glE" customClass="PhotoDetailsViewController" customModule="InstagramFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BIc-eF-nvq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qbr-CD-src"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3a-Y2-OAP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="346"/>
+        </scene>
         <!--Photos View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -17,17 +32,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="net.thegeekgoddess.photofeed.photocell" rowHeight="274" id="pJt-CH-f9h" customClass="PhotoCell" customModule="InstagramFeed" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="net.thegeekgoddess.photofeed.photocell" rowHeight="274" id="pJt-CH-f9h" customClass="PhotoCell" customModule="InstagramFeed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="274"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJt-CH-f9h" id="0dz-jN-xfu">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="273.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="273.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YZt-s3-1Sq">
                                                     <rect key="frame" x="8" y="231" width="286" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -40,11 +55,12 @@
                                         <connections>
                                             <outlet property="imageLink" destination="YZt-s3-1Sq" id="eaz-tc-Dwd"/>
                                             <outlet property="photoView" destination="ieH-1T-IRt" id="a7a-4Y-Hc8"/>
+                                            <segue destination="psA-zN-glE" kind="push" id="BBq-60-7Tc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eMn-EF-Efg"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ZF1-jr-Qr0"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -57,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="346"/>
+            <point key="canvasLocation" x="610" y="346"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lgv-Yj-gUX">
