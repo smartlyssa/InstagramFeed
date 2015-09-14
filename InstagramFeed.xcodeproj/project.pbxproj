@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		493FD4581BA55A5E007F10C6 /* PhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493FD4571BA55A5E007F10C6 /* PhotoDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		49A5066D1BA61D1800EA158B /* dora_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5066C1BA61D1800EA158B /* dora_logo.png */; settings = {ASSET_TAGS = (); }; };
 		A0DC848C93E934A0C3A0D130 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B3FE6813524F103737893E /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E01B57061BA2534C00401F06 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01B57051BA2534C00401F06 /* PhotosViewController.swift */; };
 		E02343511BA24DCD00FC2E85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02343501BA24DCD00FC2E85 /* AppDelegate.swift */; };
@@ -38,7 +37,6 @@
 		0037AEF9819B71AD3A111042 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		14B3FE6813524F103737893E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		493FD4571BA55A5E007F10C6 /* PhotoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailsViewController.swift; sourceTree = "<group>"; };
-		49A5066C1BA61D1800EA158B /* dora_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dora_logo.png; path = ../dora_logo.png; sourceTree = "<group>"; };
 		DB77F573B9149B6A4A91E3B1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E01B57051BA2534C00401F06 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		E023434D1BA24DCD00FC2E85 /* InstagramFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,7 +124,6 @@
 		E023434F1BA24DCD00FC2E85 /* InstagramFeed */ = {
 			isa = PBXGroup;
 			children = (
-				49A5066C1BA61D1800EA158B /* dora_logo.png */,
 				E01B57041BA2532400401F06 /* View Controllers */,
 				E02343501BA24DCD00FC2E85 /* AppDelegate.swift */,
 				E02343541BA24DCD00FC2E85 /* Main.storyboard */,
@@ -246,7 +243,6 @@
 			files = (
 				E023435B1BA24DCD00FC2E85 /* LaunchScreen.storyboard in Resources */,
 				E02343581BA24DCD00FC2E85 /* Assets.xcassets in Resources */,
-				49A5066D1BA61D1800EA158B /* dora_logo.png in Resources */,
 				E02343561BA24DCD00FC2E85 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

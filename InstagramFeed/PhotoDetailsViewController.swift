@@ -8,17 +8,33 @@
 
 import UIKit
 
-class PhotoDetailsViewController: UIViewController {
-
+class PhotoDetailsViewController: UIViewController, UITableViewDataSource {
+    
+    @IBOutlet weak var detailTableView: UITableView!
+    var selectPhotoDetails: NSDictionary!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+        NSLog("Photo Details: \(selectPhotoDetails)")
+        NSLog("Attr Count: \(selectPhotoDetails.count)")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
+//        cell.textLabel?.text = "\(indexPath.row)"
+
+        cell.textLabel?.text = selectPhotoDetails["link"] as! String
+        return cell
     }
     
 

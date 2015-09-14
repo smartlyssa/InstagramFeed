@@ -15,6 +15,7 @@ class PhotosViewController: UIViewController,UITableViewDelegate, UITableViewDat
 
     @IBOutlet var tableView: UITableView!
     var photos: NSArray?
+    var refreshControl:UIRefreshControl!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -50,10 +51,39 @@ class PhotosViewController: UIViewController,UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // copy paste credit: http://stackoverflow.com/questions/24475792/how-to-use-pull-to-refresh-in-swift
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 320
         
+        refresh(self)
+
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        let vc = segue.destinationViewController as! PhotoDetailsViewController
+        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+        
+        vc.selectPhotoDetails = photos![(indexPath?.row)!] as? NSDictionary
+    }
+    
+    func refresh(sender:AnyObject) {
+
         let clientId = "f0ad5a0e24c244a3ab245709a700ecc8"
         let url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)")!
         
@@ -83,23 +113,9 @@ class PhotosViewController: UIViewController,UITableViewDelegate, UITableViewDat
             }
         }
         task.resume()
+        
+        self.refreshControl.endRefreshing()
 
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-        var vc = segue.destinationViewController as! PhotoDetailsViewController
-        var indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
-        
     }
 
 }
