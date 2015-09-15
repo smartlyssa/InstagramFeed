@@ -87,32 +87,32 @@ class PhotosViewController: UIViewController,UITableViewDelegate, UITableViewDat
         let clientId = "f0ad5a0e24c244a3ab245709a700ecc8"
         let url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)")!
         
-        //        let request = NSURLRequest(URL: url)
-        //        NSURLConnection.sendAsynchronousRequest(request,queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
-        //            let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
-        //
-        //            dispatch_async(dispatch_get_main_queue()) {
-        //                self.photos = responseDictionary["data"] as? NSDictionary
-        //                NSLog("Count \(responseDictionary.count)")
-        //                self.tableView.reloadData()
-        //            }
-        //
-        //            NSLog("\(responseDictionary)")
-        //        }
+                let request = NSURLRequest(URL: url)
+                NSURLConnection.sendAsynchronousRequest(request,queue: NSOperationQueue.mainQueue()) { (response, data, error) -> Void in
+                    let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSDictionary
         
-        let request = NSMutableURLRequest(URL: url)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data , response, error ) -> Void in
-            if let dictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.photos = dictionary["data"] as? NSArray
-                    self.tableView.reloadData()
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.photos = responseDictionary["data"] as? NSArray
+                        NSLog("Count \(responseDictionary.count)")
+                        self.tableView.reloadData()
+                    }
+        
+                    NSLog("\(responseDictionary)")
                 }
-                NSLog("\(dictionary)")
-            } else {
-                
-            }
-        }
-        task.resume()
+        
+//        let request = NSMutableURLRequest(URL: url)
+//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data , response, error ) -> Void in
+//            if let dictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    self.photos = dictionary["data"] as? NSArray
+//                    self.tableView.reloadData()
+//                }
+//                NSLog("\(dictionary)")
+//            } else {
+//                
+//            }
+//        }
+//        task.resume()
         
         self.refreshControl.endRefreshing()
 
